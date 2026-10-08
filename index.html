@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IQ.TEST - 知能診断｜あなたのIQはいくつですか？</title>
+<meta name="description" content="30問20分で、あなたの論理的思考力を診断。言語に依存しない図形パターンの推理テスト。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06181a;--bg-2:#0a2729;--surface:#143c40;
+  --line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.16);
+  --text:#F5F2EA;--text-mute:#92ABAE;--text-dim:#6a8589;
+  --orange:#FF8C42;--orange-deep:#E5731F;--gold:#F5C56A;
+  --r-sm:8px;--r-md:14px;--r-lg:20px;--r-pill:999px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.8}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.en{font-family:'Outfit',sans-serif}
+
+/* ---- ヒーロー ---- */
+.hero{text-align:center;padding:72px 0 56px;
+  background:radial-gradient(900px 560px at 50% -80px,rgba(255,140,66,.22) 0%,transparent 62%),linear-gradient(180deg,var(--bg-2),var(--bg))}
+.mark{width:92px;height:92px;border-radius:24px;margin:0 auto;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--orange),var(--orange-deep));box-shadow:0 18px 50px rgba(255,140,66,.4)}
+.mark svg{width:50px;height:50px}
+.hero h1{font-family:'Outfit',sans-serif;font-size:56px;font-weight:900;letter-spacing:.02em;line-height:1;margin-top:26px}
+.hero h1 span{color:var(--orange)}
+.hero .tag{font-size:16px;color:var(--text-mute);letter-spacing:.2em;margin-top:12px}
+.hero .lead{font-size:26px;font-weight:900;line-height:1.5;margin-top:34px}
+.hero .lead span{color:var(--orange)}
+.hero .desc{font-size:14px;color:var(--text-mute);max-width:520px;margin:12px auto 0}
+.stats{display:flex;justify-content:center;gap:34px;margin-top:30px}
+.stats .v{font-family:'Outfit','Noto Sans JP',sans-serif;font-size:26px;font-weight:900;color:var(--gold);line-height:1.2}
+.stats .k{font-size:11px;color:var(--text-mute)}
+
+/* ストアバッジ。公式アートワーク（日本語版）をそのまま使う。Google Play は画像に余白があるので、Apple の約1.3倍の高さにする */
+.badges{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px}
+.badges a{display:block;line-height:0}
+.badges .b-apple{height:48px;width:auto;display:block}
+.badges .b-google{height:63px;width:auto;display:block}
+.soon{font-size:11px;color:var(--text-dim);margin-top:10px}
+
+/* ---- セクション ---- */
+section{padding:64px 0;border-top:1px solid var(--line)}
+.kicker{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--orange);text-align:center}
+h2{font-size:24px;font-weight:900;text-align:center;line-height:1.5;margin-top:8px}
+.sub{font-size:13px;color:var(--text-mute);text-align:center;max-width:560px;margin:10px auto 0}
+
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px 20px}
+.feat .n{font-family:'Outfit',sans-serif;font-size:12px;font-weight:900;color:var(--orange);letter-spacing:.14em}
+.feat h3{font-size:16px;font-weight:900;margin-top:6px}
+.feat p{font-size:13px;color:var(--text-mute);margin-top:8px;line-height:1.85}
+
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.shot{text-align:center}
+.shot img{width:100%;max-width:250px;border-radius:22px;border:1px solid var(--line-strong);box-shadow:0 24px 60px rgba(0,0,0,.5);display:block;margin:0 auto}
+.shot .cap{font-size:13px;font-weight:700;margin-top:14px}
+.shot .cap2{font-size:12px;color:var(--text-mute)}
+
+.cta{text-align:center;background:radial-gradient(700px 360px at 50% 0,rgba(255,140,66,.14) 0%,transparent 65%)}
+
+/* ---- フッター ---- */
+footer{border-top:1px solid var(--line);padding:34px 0 46px;text-align:center}
+footer .links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:13px}
+footer .links a{color:var(--text-mute);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.disc{font-size:11px;color:var(--text-dim);line-height:1.9;margin-top:22px}
+.legal{font-size:10px;color:var(--text-dim);line-height:1.8;margin-top:14px}
+.brand{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:22px}
+.brand .m{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center}
+.brand .m svg{width:14px;height:14px}
+.brand .wm{font-family:'Outfit',sans-serif;font-size:15px;font-weight:900}
+.brand .wm span{color:var(--orange)}
+
+@media (max-width:720px){
+  .hero{padding:52px 0 44px}
+  .hero h1{font-size:44px}
+  .hero .lead{font-size:21px}
+  .feats{grid-template-columns:1fr}
+  .shots{grid-template-columns:1fr;gap:34px}
+  section{padding:48px 0}
+  h2{font-size:21px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#1a0d00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v.5A3.5 3.5 0 0 0 6 13a3.5 3.5 0 0 0 2 6.32V20a2 2 0 0 0 4 0V6"/><path d="M12 2a4 4 0 0 1 4 4v.5A3.5 3.5 0 0 1 18 13a3.5 3.5 0 0 1-2 6.32V20a2 2 0 0 1-4 0"/></svg></div>
+    <h1>IQ<span>.</span>TEST</h1>
+    <div class="tag">知能診断</div>
+    <p class="lead">あなたのIQは<span>いくつ</span>ですか？</p>
+    <p class="desc">言語に依存しない図形パターンの推理で、あなたの論理的思考力を測定します。</p>
+    <div class="stats">
+      <div><div class="v">30</div><div class="k">問題</div></div>
+      <div><div class="v">20</div><div class="k">分</div></div>
+      <div><div class="v">無料</div><div class="k">診断</div></div>
+    </div>
+    <div class="badges">
+      <a href="#"><img class="b-apple" src="assets/badge_appstore_ja.svg" alt="App Store からダウンロード"></a>
+      <a href="#"><img class="b-google" src="assets/badge_googleplay_ja.png" alt="Google Play で手に入れよう"></a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">HOW IT WORKS</div>
+    <h2>診断の流れ</h2>
+    <p class="sub">登録もログインも不要。アプリを開いて、すぐに始められます。</p>
+    <div class="shots">
+      <div class="shot">
+        <img src="images/01_title.png" alt="タイトル画面">
+        <div class="cap">1. はじめる</div>
+        <div class="cap2">アプリを開いてすぐスタート</div>
+      </div>
+      <div class="shot">
+        <img src="images/03_test.png" alt="テスト画面">
+        <div class="cap">2. 30問に挑戦</div>
+        <div class="cap2">分からない問題はスキップして後回しに</div>
+      </div>
+      <div class="shot">
+        <img src="images/07_result.png" alt="結果画面">
+        <div class="cap">3. 結果を見る</div>
+        <div class="cap2">IQ と偉人ランクを表示</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">FEATURES</div>
+    <h2>3つの特徴</h2>
+    <div class="feats">
+      <div class="feat">
+        <div class="n">01</div>
+        <h3>図形だけで解ける</h3>
+        <p>問題はすべて図形のパターン。並び方の法則を見つけて、「？」に入る図形を6つの中から選びます。言葉や計算の知識は要りません。</p>
+      </div>
+      <div class="feat">
+        <div class="n">02</div>
+        <h3>結果は偉人ランクで</h3>
+        <p>IQ の数値に加えて、あなたの知性を偉人や身近なものにたとえた「偉人ランク」を表示。分布の中での自分の位置もひと目で分かります。</p>
+      </div>
+      <div class="feat">
+        <div class="n">03</div>
+        <h3>結果をシェア</h3>
+        <p>診断結果は X・LINE などでシェアできます。友だちや家族と比べて楽しめます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="kicker">YOUR TURN</div>
+    <h2>さっそく診断してみる</h2>
+    <div class="badges">
+      <a href="#"><img class="b-apple" src="assets/badge_appstore_ja.svg" alt="App Store からダウンロード"></a>
+      <a href="#"><img class="b-google" src="assets/badge_googleplay_ja.png" alt="Google Play で手に入れよう"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="https://forms.gle/4GRMZXDxfjBRyBXk7">お問い合わせ</a>
+    </div>
+    <div class="disc">※本アプリは娯楽目的であり、正式な知能検査ではありません。<br>結果は学術的・医学的に保証されるものではありません。</div>
+    <div class="legal">Apple、Apple ロゴは、米国およびその他の国で登録された Apple Inc. の商標です。App Store は Apple Inc. のサービスマークです。<br>Google Play および Google Play ロゴは、Google LLC の商標です。</div>
+    <div class="brand">
+      <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="#1a0d00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v.5A3.5 3.5 0 0 0 6 13a3.5 3.5 0 0 0 2 6.32V20a2 2 0 0 0 4 0V6"/><path d="M12 2a4 4 0 0 1 4 4v.5A3.5 3.5 0 0 1 18 13a3.5 3.5 0 0 1-2 6.32V20a2 2 0 0 1-4 0"/></svg></div>
+      <div class="wm">IQ<span>.</span>TEST</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
