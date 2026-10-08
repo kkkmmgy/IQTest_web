@@ -46,6 +46,9 @@ a{color:inherit}
 .badges .b-google{height:63px;width:auto;display:block}
 .soon{font-size:11px;color:var(--text-dim);margin-top:10px}
 
+/* ストアのURLが無い間は、バッジ・最後の呼びかけ・商標の表記を出さない（body の class で切り替える） */
+.store-hidden .badges,.store-hidden .cta,.store-hidden .legal{display:none}
+
 /* ---- セクション ---- */
 section{padding:64px 0;border-top:1px solid var(--line)}
 .kicker{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--orange);text-align:center}
@@ -89,7 +92,9 @@ footer .links a{color:var(--text-mute);text-decoration:none;border-bottom:1px so
 }
 </style>
 </head>
-<body>
+<!-- ストアへのリンク先が決まるまで、ストアバッジまわりを隠している。
+     公開したら body の class="store-hidden" を外し、バッジの href="#" を実際のストアURLにする -->
+<body class="store-hidden">
 
 <header class="hero">
   <div class="wrap">
